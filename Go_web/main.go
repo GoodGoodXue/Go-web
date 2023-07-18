@@ -12,8 +12,8 @@ import (
 
 type User struct {
 	gorm.Model
-	Name      string `gorm:"vaarchar(20);not null"`
-	Telephone string `gorm:"vaarchar(20);not null;unique"`
+	Name      string `gorm:"varchar(20);not null"`
+	Telephone string `gorm:"varchar(20);not null;unique"`
 	PassWord  string `gorm:"size:225;not null"`
 }
 
@@ -158,7 +158,7 @@ func main() {
 				"code":    422,
 				"message": "密码错误",
 			})
-
+			return
 		}
 		c.JSON(http.StatusOK, gin.H{
 			"code":   200,
